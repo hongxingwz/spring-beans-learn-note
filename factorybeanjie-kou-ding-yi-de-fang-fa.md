@@ -23,14 +23,14 @@ public interface BeanFactory{
     @throws BeansException 如果不能获取到此bean
     */
     <T> T getBean(Class<T> requiredType) throws BeansException;
-    
+
     /*
     @throws NoSuchBeanDefinitionException 如果没有指定名字的bean的bean definition
     @throws BeanDefinitionStoreException 如果指定了参数，但影响到的bean不是prototype
     @throws BeansException 如果不能获取到此bean
     */
     Object getBean(String name, Object... args) throws BeansException;
-    
+
     /*
     @throws NoSuchBeanDefinitionException 如果没有指定名字的bean的bean definition
     @throws BeanDefinitionStoreException 如果指定了参数，但影响到的bean不是prototype
@@ -40,14 +40,29 @@ public interface BeanFactory{
 
     boolean containsBean(String name);
 
+    /*
+    @throws NoSuchBeanDefinitionException 如果没有指定名字的bean的bean definition
+    */
     boolean isSingleton(String name) throws NoSuchBeanDefinitionException;
-
+    
+    /*
+    @throws NoSuchBeanDefinitionException 如果没有指定名字的bean的bean definition
+    */
     boolean isPrototype(String name) throws NoSuchBeanDefinitionException;
-
+    
+    /*
+    @throws NoSuchBeanDefinitionException 如果没有指定名字的bean的bean definition
+    */
     boolean isTypeMatch(String name, ResolvableType typeToMatch) throw NoSuchBeanDefinitionException;
-
+    
+    /*
+    @throws NoSuchBeanDefinitionException 如果没有指定名字的bean的bean definition
+    */
     boolean isTypeMatch(String name, Class<?> typeToMatch) throws NoSuchBeanDefinitionException;
-
+    
+    /*
+    @throws NoSuchBeanDefinitionException 如果没有指定名字的bean的bean definition
+    */
     Class<?> getType(String name) throws NoSuchBeanDefinitionException;
 
     String[] getAlias(String name)
