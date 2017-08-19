@@ -26,5 +26,35 @@ Love5{name='dengyi', age=1, level=1}
 */
 ```
 
+**情况2：**
+
+不设置**&lt;bean&gt;**元素的lazy-init属性，其scope属性设置为prototype
+
+```
+<bean id="love5" class="com2.jianglei.bean.Love5"
+        c:name="dengyi" c:level="1" c:age="1" scope="prototype"/>
+```
+
+可以设置多次有效属性
+
+```java
+public class XmlApp6 {
+    public static void main(String[] args) {
+        ClassPathXmlApplicationContext context =
+                new ClassPathXmlApplicationContext("classpath:com2/jianglei/spring-context5.xml");
+        Object love = context.getBean("love5", "dengyi", 11, 11);
+        System.out.println(love);
+        love = context.getBean("love5", "dengyi2", 2, 2);
+        System.out.println(love);
+        love = context.getBean("love5");
+        System.out.println(love);
+    }
+}
+/*
+Love5{name='dengyi', age=1, level=1}
+Love5{name='dengyi2', age=2, level=2}
+*/
+```
+
 
 
